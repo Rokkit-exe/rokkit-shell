@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
-import "../theme"
+import "../../theme"
+import "../../components" as Components
 
 PopupWindow {
     id: customMenu
@@ -29,7 +30,7 @@ PopupWindow {
         Column {
             id: menuColumn
             width: parent.width
-            padding: Theme.padding.small
+            padding: Theme.spacing.small
             spacing: Theme.spacing.small
             
             Repeater {
@@ -73,7 +74,7 @@ PopupWindow {
                       
                       Row {
                         anchors.fill: parent
-                        anchors.leftMargin: Theme.margin.medium
+                        anchors.leftMargin: Theme.spacing.medium
                         spacing: Theme.spacing.medium
                         Image {
                           anchors.verticalCenter: parent.verticalCenter
@@ -88,7 +89,7 @@ PopupWindow {
                           height: menuItemArea.isKeyboard || !menuItem.entry.icon ? 0 : Theme.fonts.logoSize
                           fillMode: Image.PreserveAspectFit
                         }
-                        Text {
+                        Components.Text {
                             anchors.verticalCenter: parent.verticalCenter
                             text: {
                               if (menuItemArea.isKeyboard || !menuItem.entry.icon) {
@@ -97,9 +98,6 @@ PopupWindow {
                               }
                               return menuItem.entry.text
                             }
-                            color: Theme.colors.foreground
-                            font.family: Theme.fonts.family
-                            font.pixelSize: Theme.fonts.size
                         }
                       }
                       

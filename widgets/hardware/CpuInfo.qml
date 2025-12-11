@@ -1,34 +1,32 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
-import "../components/" as Components
+import "../../theme"
+import "../../components/" as Components
 
 Components.ColumnBox {
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.Icon {
       text: Theme.icons.cpu
       color: Theme.colors.red
     }
 
-    Text {
+    Components.Text {
       id: cpuText
 
       text: "CPU"
       color: Theme.colors.red
-      font.family: Theme.fonts.family
-      font.bold: true
       font.pixelSize: Theme.fonts.iconSize
       anchors.verticalCenter: parent.verticalCenter
-      leftPadding: Theme.padding.small
+      leftPadding: Theme.spacing.small
     }
   }
 
   // CPU Model name
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Model"
@@ -40,7 +38,7 @@ Components.ColumnBox {
 
   // CPU Usage %
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Usage"
@@ -53,7 +51,7 @@ Components.ColumnBox {
 
   // CPU Temperature
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Temp"

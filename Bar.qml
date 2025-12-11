@@ -1,9 +1,13 @@
 // Bar.qml
 import Quickshell
 import QtQuick
-import "./system_utils"
-import "./system_tray"
 import "./theme"
+import "./widgets/logo"
+import "./widgets/workspace"
+import "./widgets/clock"
+import "./widgets/tray"
+import "./widgets"
+import "./window"
 
 Scope {
   id: barScope
@@ -36,7 +40,7 @@ Scope {
         anchors {
           left: parent.left
           verticalCenter: parent.verticalCenter
-          leftMargin: Theme.margin.medium
+          leftMargin: Theme.spacing.medium
         }
         spacing: Theme.spacing.medium 
         LogoWidget {
@@ -60,7 +64,7 @@ Scope {
         anchors {
           right: parent.right
           verticalCenter: parent.verticalCenter
-          rightMargin: Theme.margin.small
+          rightMargin: Theme.spacing.small
         }
         spacing: Theme.spacing.medium
         SystemTrayWidget {

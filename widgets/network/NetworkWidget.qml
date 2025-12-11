@@ -1,7 +1,8 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
+import "../../theme"
+import "../../components" as Components
 
 Item {
     id: root
@@ -52,8 +53,6 @@ Item {
         }
     }
     
-    
-    
     // Refresh every 5 seconds
     Timer {
         running: true
@@ -74,7 +73,7 @@ Item {
         }
     }
     
-    Text {
+    Components.Text {
         text: {
             if (root.connectionStatus === "ethernet") {
                 return Theme.icons.ethernet
@@ -87,8 +86,6 @@ Item {
             }
             return Theme.icons.wifiOff
         }
-        
-        font.family: Theme.fonts.family
         font.pixelSize: Theme.fonts.iconSize
         color: root.connectionStatus === "disconnected" ? Theme.colors.foregroundDark : Theme.colors.blue
         anchors.centerIn: parent

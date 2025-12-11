@@ -2,7 +2,6 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell
-import "./system_utils/"
 
 ShellRoot {
   id: shellRoot
@@ -11,7 +10,7 @@ ShellRoot {
     settingsWindow: settingsWindow
   }
 
-  FloatingPane {
-    id: settingsWindow
-  }
+  // FloatingPane {
+  //   id: settingsWindow
+  // }
 }

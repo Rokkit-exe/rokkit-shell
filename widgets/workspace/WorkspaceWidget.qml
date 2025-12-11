@@ -5,7 +5,8 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
-import "./theme"
+import "../../theme"
+import "../../components" as Components
 
 Item {
   id: root
@@ -26,7 +27,7 @@ Item {
       id: trayRow
       anchors.verticalCenter: parent.verticalCenter
       spacing: Theme.spacing.small
-      padding: Theme.padding.small
+      padding: Theme.spacing.small
 
       Repeater {
         model: 9

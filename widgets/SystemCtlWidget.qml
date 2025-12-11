@@ -1,6 +1,11 @@
 import QtQuick
 import Quickshell
 import "../theme"
+import "./hardware/"
+import "./settings/"
+import "./network/"
+import "./audio/"
+import "./bluetooth/"
 
 Item {
   id: systemCtlWidget
@@ -28,9 +33,9 @@ Item {
       }
       id: trayRow
       spacing: Theme.spacing.small
-      padding: Theme.padding.small
+      padding: Theme.spacing.small
 
-      CpuWidget {
+      HardwareWidget {
         bar: systemCtlWidget.bar
       }
       BluetoothWidget {

@@ -1,8 +1,8 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "./theme"
-import "./components/" as Components
+import "../../theme"
+import "../../components/" as Components
 
 Components.PopupWindow {
     id: calendarPopup
@@ -11,7 +11,7 @@ Components.PopupWindow {
     property int cellSize: 40  // Fixed cell size for consistency
     
     implicitWidth: 320
-    implicitHeight: mainColumn.implicitHeight + Theme.padding.medium * 2
+    implicitHeight: mainColumn.implicitHeight + Theme.spacing.medium * 2
     
     Rectangle {
         anchors.fill: parent
@@ -22,10 +22,10 @@ Components.PopupWindow {
         
         Column {
             id: mainColumn
-            width: parent.width - Theme.padding.medium * 2
+            width: parent.width - Theme.spacing.medium * 2
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
-            anchors.topMargin: Theme.padding.medium
+            anchors.topMargin: Theme.spacing.medium
             spacing: Theme.spacing.medium
             
             // Header with navigation
@@ -54,7 +54,7 @@ Components.PopupWindow {
                         border.width: Theme.borders.width
                         radius: Theme.borders.radius
                         
-                        Text {
+                        Components.Icon {
                             text: Theme.icons.arrowLeft
                             color: Theme.colors.blue
                             font.pixelSize: Theme.fonts.size
@@ -67,12 +67,9 @@ Components.PopupWindow {
                     width: parent.width - 90
                     height: 40
                     
-                    Text {
+                    Components.Text {
                         text: Qt.formatDate(calendarPopup.currentDate, "MMMM yyyy")
-                        color: Theme.colors.foreground
-                        font.family: Theme.fonts.family
                         font.pixelSize: Theme.fonts.size + 4
-                        font.bold: true
                         anchors.centerIn: parent
                     }
                 }
@@ -96,7 +93,7 @@ Components.PopupWindow {
                         border.width: Theme.borders.width
                         radius: Theme.borders.radius
                         
-                        Text {
+                        Components.Icon {
                             text: Theme.icons.arrowRight
                             color: Theme.colors.blue
                             font.pixelSize: Theme.fonts.size
@@ -119,12 +116,10 @@ Components.PopupWindow {
                         height: 30
                         color: "transparent"
                         
-                        Text {
+                        Components.Text {
                             text: modelData
                             color: Theme.colors.blue
-                            font.family: Theme.fonts.family
                             font.pixelSize: Theme.fonts.size - 2
-                            font.bold: true
                             anchors.centerIn: parent
                         }
                     }
@@ -165,11 +160,9 @@ Components.PopupWindow {
                         color: isToday ? Theme.colors.blue : "transparent"
                         radius: Theme.borders.radius
                         
-                        Text {
+                        Components.Text {
                             text: parent.dayNumber
                             color: parent.isToday ? Theme.colors.background : Theme.colors.foreground
-                            font.family: Theme.fonts.family
-                            font.pixelSize: Theme.fonts.size
                             anchors.centerIn: parent
                         }
                     }
@@ -194,22 +187,18 @@ Components.PopupWindow {
                     radius: Theme.borders.radius
                     
                     Row {
-                        anchors.centerIn: parent
-                        spacing: Theme.spacing.small
-                        
-                        Text {
-                            text: Theme.icons.refresh
-                            color: Theme.colors.blue
-                            font.family: Theme.fonts.family
-                            font.pixelSize: Theme.fonts.size
-                        }
-                        
-                        Text {
-                            text: "Today"
-                            color: Theme.colors.foreground
-                            font.family: Theme.fonts.family
-                            font.pixelSize: Theme.fonts.size
-                        }
+                      anchors.centerIn: parent
+                      spacing: Theme.spacing.small
+                      
+                      Components.Icon {
+                          text: Theme.icons.refresh
+                          color: Theme.colors.blue
+                          font.pixelSize: Theme.fonts.size
+                      }
+                      
+                      Components.Text {
+                          text: "Today"
+                      }
                     }
                 }
             }

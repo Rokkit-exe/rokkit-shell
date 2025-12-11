@@ -1,34 +1,32 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
-import "../components/" as Components
+import "../../theme"
+import "../../components/" as Components
 
 Components.ColumnBox {
   spacing: Theme.spacing.small
-  padding: Theme.padding.small
+  padding: Theme.spacing.small
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.Icon {
       text: Theme.icons.cpu
       color: Theme.colors.green
     }
 
-    Text {
+    Components.Text {
       text: "GPU"
       color: Theme.colors.green
-      font.family: Theme.fonts.family
       font.pixelSize: Theme.fonts.iconSize
-      font.bold: true
       anchors.verticalCenter: parent.verticalCenter
-      padding: Theme.padding.small
+      padding: Theme.spacing.small
     }
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Model"
@@ -40,7 +38,7 @@ Components.ColumnBox {
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
 
     Components.TextProcess {
@@ -53,7 +51,7 @@ Components.ColumnBox {
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Used"
@@ -66,7 +64,7 @@ Components.ColumnBox {
 
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Total"

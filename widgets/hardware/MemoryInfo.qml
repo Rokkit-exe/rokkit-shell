@@ -1,34 +1,32 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
-import "../components/" as Components
+import "../../theme"
+import "../../components/" as Components
 
 Components.ColumnBox {
   spacing: Theme.spacing.small
-  padding: Theme.padding.small
+  padding: Theme.spacing.small
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.Icon {
       text: Theme.icons.memory
       color: Theme.colors.purple
     }
 
-    Text {
+    Components.Text {
       text: "Memory"
       color: Theme.colors.purple
-      font.family: Theme.fonts.family
       font.pixelSize: Theme.fonts.iconSize
-      font.bold: true
       anchors.verticalCenter: parent.verticalCenter
-      padding: Theme.padding.small
+      padding: Theme.spacing.small
     }
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Usage"
@@ -40,7 +38,7 @@ Components.ColumnBox {
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
     Components.TextProcess {
       name: "Used"
       value: this.result
@@ -52,7 +50,7 @@ Components.ColumnBox {
 
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
     Components.TextProcess {
       name: "Total"
       value: this.result

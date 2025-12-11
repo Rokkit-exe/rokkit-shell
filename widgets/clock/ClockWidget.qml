@@ -1,7 +1,8 @@
 // ClockWidget.qml
 import QtQuick
 import Quickshell
-import "./theme"
+import "../../theme"
+import "../../components" as Components
 
 Item {
   id: clockItem
@@ -38,15 +39,11 @@ Item {
       border.color: Theme.colors.backgroundLight
       radius: Theme.borders.radius
       
-      Text {
+      Components.Text {
         id: timeText
-        anchors.centerIn: parent
-
         text: Time.time
-        font.family: Theme.fonts.family 
-        font.pixelSize: Theme.fonts.size
-        color: Theme.colors.foreground
         padding: Theme.padding.medium
+        anchors.centerIn: parent
       }
     }
   }

@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
+import "../../theme"
 
 PopupWindow {
   id: customMenu
@@ -28,7 +28,7 @@ PopupWindow {
     Column {
       id: menuColumn
       width: parent.width
-      padding: Theme.padding.medium
+      padding: Theme.spacing.medium
       spacing: Theme.spacing.small
 
       CpuInfo {

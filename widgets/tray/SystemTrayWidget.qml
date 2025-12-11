@@ -2,11 +2,12 @@
 import QtQuick
 import Quickshell
 import Quickshell.Services.SystemTray
-import "../theme"
+import "../../theme"
+import "../../components" as Components
 
 Item {
     id: root
-    implicitWidth: trayRow.implicitWidth + Theme.padding.medium
+    implicitWidth: trayRow.implicitWidth + Theme.spacing.medium
     height: Theme.dimensions.itemsHeight
     
     property var bar: null
@@ -19,7 +20,7 @@ Item {
 
     Rectangle {
       anchors.fill: parent
-      width: trayRow.implicitWidth + Theme.padding.medium
+      width: trayRow.implicitWidth + Theme.spacing.medium
       color: Theme.colors.backgroundLight
       border.width: Theme.borders.width
       border.color: Theme.colors.backgroundLight
@@ -29,7 +30,7 @@ Item {
       anchors.verticalCenter: parent.verticalCenter
       id: trayRow
       spacing: Theme.spacing.medium
-      padding: Theme.padding.medium
+      padding: Theme.spacing.medium
       
       Repeater {
           model: SystemTray.items
@@ -87,7 +88,7 @@ Item {
                     fillMode: Image.PreserveAspectFit
                   }
 
-                  Text {
+                  Components.Icon {
                     anchors.fill: parent
                     text: {
                       if (iconItem.trayItem.title === "Input Method") {
@@ -96,9 +97,6 @@ Item {
                       }
                       return iconItem.trayItem.iconText ? iconItem.trayItem.iconText : ""
                     }
-                    font.family: Theme.fonts.family
-                    font.pixelSize: Theme.fonts.iconSize
-                    color: Theme.colors.foreground
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                   }

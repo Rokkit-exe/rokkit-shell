@@ -2,7 +2,8 @@ import QtQuick
 import Quickshell
 import Quickshell.Bluetooth
 import QtQuick.Controls
-import "../theme"
+import "../../theme"
+import "../../components" as Components
 
 Item {
     width: Theme.dimensions.barHeight
@@ -40,14 +41,13 @@ Item {
         }
     }
     
-    Text {
+    Components.Text {
         text: {
             if (!adapter) return Theme.icons.bluetoothOff
             if (!adapter.enabled) return Theme.icons.bluetoothOff
             if (isConnected) return Theme.icons.bluetoothConnected
             return Theme.icons.bluetooth
         }
-        font.family: Theme.fonts.family
         font.pixelSize: Theme.fonts.iconSize
         color: {
             if (!adapter || !adapter.enabled) return Theme.colors.foregroundDark

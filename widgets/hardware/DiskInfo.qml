@@ -1,15 +1,15 @@
 import QtQuick
 import Quickshell
 import Quickshell.Io
-import "../theme"
-import "../components/" as Components
+import "../../theme"
+import "../../components/" as Components
 
 Components.ColumnBox {
   spacing: Theme.spacing.small
-  padding: Theme.padding.small
+  padding: Theme.spacing.small
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.Icon {
       text: Theme.icons.disk
@@ -17,20 +17,18 @@ Components.ColumnBox {
       font.pixelSize: Theme.fonts.iconSize
     }
 
-    Text {
+    Components.Text {
       text: "Disk"
       color: Theme.colors.teal
-      font.family: Theme.fonts.family
       font.pixelSize: Theme.fonts.iconSize
-      font.bold: true
       anchors.verticalCenter: parent.verticalCenter
-      padding: Theme.padding.small
-      bottomPadding: Theme.padding.small
+      padding: Theme.spacing.small
+      bottomPadding: Theme.spacing.small
     }
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Model"
@@ -41,7 +39,7 @@ Components.ColumnBox {
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
 
     Components.TextProcess {
       name: "Filesystem"
@@ -52,7 +50,7 @@ Components.ColumnBox {
   }
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
     Components.TextProcess {
       name: "Used"
       value: this.result
@@ -64,7 +62,7 @@ Components.ColumnBox {
 
 
   Components.RowBox {
-    padding: Theme.padding.medium
+    padding: Theme.spacing.medium
     Components.TextProcess {
       name: "Total"
       value: this.result

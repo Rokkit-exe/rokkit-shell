@@ -3,9 +3,10 @@ import QtQuick
 
 QtObject {
     id: theme
-    
+
     // Colors
     property QtObject colors: QtObject {
+        id: colors
         property color background: "#1A1B26"
         property color backgroundDark: "#16161E"
         property color backgroundLight: "#292E42"
@@ -28,52 +29,43 @@ QtObject {
         property color black: "#24283B"
         property color white: "#C0CAF5"
     }
-    
+
     // Fonts
     property QtObject fonts: QtObject {
+        id: fonts
         property string family: "JetBrainsMono Nerd Font"
         property int size: 12
         property int iconSize: 14
         property int logoSize: 16
     }
-    
+
     // Spacing
     property QtObject spacing: QtObject {
+        id: spacing
         property int small: 4
         property int medium: 8
-        property int large: 16
+        property int large: 12
     }
-    
-    // Padding
-    property QtObject padding: QtObject {
-        property int small: 4
-        property int medium: 8
-        property int large: 16
-    }
-    
-    // Margin
-    property QtObject margin: QtObject {
-        property int small: 4
-        property int medium: 8
-        property int large: 16
-    }
-    
+
     // Dimensions
     property QtObject dimensions: QtObject {
+        id: dimensions
         property int barHeight: 24
         property int itemsHeight: 20
         property int menuItemHeight: 26
     }
-    
+
     // Borders
     property QtObject borders: QtObject {
+        id: borders
         property int radius: 10
         property int width: 1
         property color color: theme.colors.backgroundLight
     }
-    
+
     // Icons
     property QtObject icons: QtObject {
+        id: icons
         property string dot: ""
         property string square: "󱓻"
         property string arrowRight: ""

@@ -9,8 +9,8 @@ Rectangle {
   property int padding: 0
   property int spacing: 0
 
-  width: parent.width - Theme.padding.medium * 2
-  height: column.implicitHeight + Theme.padding.small * 2
+  width: parent.width - Theme.spacing.medium * 2
+  height: column.implicitHeight + Theme.spacing.small * 2
   color: Theme.colors.backgroundLight
   border.color: Theme.colors.backgroundLight
   border.width: Theme.borders.width
