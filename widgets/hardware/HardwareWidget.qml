@@ -3,7 +3,7 @@ import QtQuick
 import Quickshell
 import "../../theme"
 import "../../components" as Components
-
+import "../../functions/"
 Item {
   id: hardwareItem
   anchors.verticalCenter: parent.verticalCenter
@@ -17,33 +17,18 @@ Item {
     bar: hardwareItem.bar
   }
 
-  MouseArea {
+  Components.MouseArea {
+    id: hardwareArea
     anchors.fill: parent
-    cursorShape: Qt.PointingHandCursor
-    
-    onClicked: {
-      hardwareMenu.visible = !hardwareMenu.visible
-    }
 
-    onPressed: (mouse) => {
-      if (mouse.button === Qt.LeftButton) {
-        let itemGlobal = hardwareItem.mapToGlobal(0, 0)
-        let barGlobal = hardwareMenu.bar.contentItem.mapToGlobal(0, 0)
-        
-        // Calculate icon's center position relative to bar
-        let iconCenterX = itemGlobal.x - barGlobal.x + (hardwareItem.width / 2)
-        
-        // Subtract half of menu width to center it
-        let relativeX = iconCenterX - (hardwareMenu.implicitWidth / 2)
-        
-        hardwareMenu.anchor.rect.x = relativeX
-      }
+    onLeftClick: () => {
+      Functions.toggleMenu(hardwareItem.bar, hardwareMenu, hardwareArea)
     }
   }
     
   Components.Icon {
     text: Theme.icons.cpu
-    font.pixelSize: Theme.fonts.iconSize
+    font.pixelSize: Theme.fonts.size.medium
     anchors.centerIn: parent
   }
 }

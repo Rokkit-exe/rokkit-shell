@@ -57,7 +57,7 @@ Components.PopupWindow {
                         Components.Icon {
                             text: Theme.icons.arrowLeft
                             color: Theme.colors.blue
-                            font.pixelSize: Theme.fonts.size
+                            font.pixelSize: Theme.fonts.size.small
                             anchors.centerIn: parent
                         }
                     }
@@ -69,7 +69,7 @@ Components.PopupWindow {
                     
                     Components.Text {
                         text: Qt.formatDate(calendarPopup.currentDate, "MMMM yyyy")
-                        font.pixelSize: Theme.fonts.size + 4
+                        font.pixelSize: Theme.fonts.size.small + 4
                         anchors.centerIn: parent
                     }
                 }
@@ -96,7 +96,7 @@ Components.PopupWindow {
                         Components.Icon {
                             text: Theme.icons.arrowRight
                             color: Theme.colors.blue
-                            font.pixelSize: Theme.fonts.size
+                            font.pixelSize: Theme.fonts.size.small
                             anchors.centerIn: parent
                         }
                     }
@@ -119,7 +119,7 @@ Components.PopupWindow {
                         Components.Text {
                             text: modelData
                             color: Theme.colors.blue
-                            font.pixelSize: Theme.fonts.size - 2
+                            font.pixelSize: Theme.fonts.size.small - 2
                             anchors.centerIn: parent
                         }
                     }
@@ -193,7 +193,7 @@ Components.PopupWindow {
                       Components.Icon {
                           text: Theme.icons.refresh
                           color: Theme.colors.blue
-                          font.pixelSize: Theme.fonts.size
+                          font.pixelSize: Theme.fonts.size.small
                       }
                       
                       Components.Text {

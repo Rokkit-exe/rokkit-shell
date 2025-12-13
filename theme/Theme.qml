@@ -34,9 +34,12 @@ QtObject {
     property QtObject fonts: QtObject {
         id: fonts
         property string family: "JetBrainsMono Nerd Font"
-        property int size: 12
-        property int iconSize: 14
-        property int logoSize: 16
+        property QtObject size: QtObject {
+          property int small: 12
+          property int medium: 14
+          property int large: 16
+          property int xlarge: 20
+        }
     }
 
     // Spacing
@@ -72,8 +75,15 @@ QtObject {
         property string arrowLeft: ""
         property string check: ""
         property string cross: ""
+        property string on: ""
+        property string off: ""
         property string refresh: ""
         property string settings: ""
+        property string trash: ""
+        property string download: ""
+        property string phone: ""
+        property string headphones: ""
+        property string controller: "󰊗"
         property string power: ""
         property string logout: ""
         property string sleep: ""
@@ -99,6 +109,9 @@ QtObject {
         property string bluetoothConnected: "󰂰"
         property string bluetoothOff: "󰂲"
         property string keyboard: ""
+        property string mouse: "󰍽"
+        property string desktop: ""
+        property string speaker: "󰓃"  
         property string wifi0: "󰤯"
         property string wifi1: "󰤟"
         property string wifi2: "󰤢"

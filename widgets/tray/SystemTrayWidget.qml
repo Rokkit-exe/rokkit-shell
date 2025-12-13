@@ -37,8 +37,8 @@ Item {
           
           delegate: Item {
               id: iconItem
-              width: Theme.fonts.iconSize
-              height: Theme.fonts.iconSize
+              width: Theme.fonts.size.medium
+              height: Theme.fonts.size.medium
               
               property var trayItem: modelData
               
@@ -48,17 +48,16 @@ Item {
                   menu: iconItem.trayItem.menu ? iconItem.trayItem.menu : null
               }
               
-              MouseArea {
+              Components.MouseArea {
                   id: icon
                   anchors.fill: parent
-                  acceptedButtons: Qt.LeftButton | Qt.RightButton
-                  cursorShape: Qt.PointingHandCursor
-                  hoverEnabled: true
-                  
-                  onClicked: (mouse) => {
-                    if (mouse.button === Qt.LeftButton && iconItem.trayItem.menu) {
+                  onLeftClick: () => {
+                    if (iconItem.trayItem.menu) {
                       iconItem.trayItem.activate()
-                    } else if (mouse.button === Qt.RightButton && iconItem.trayItem.menu) {
+                    }
+                  }
+                  onRightClick: () => {
+                    if (iconItem.trayItem.menu) {
                       // Position menu centered on icon
                         let itemGlobal = icon.mapToGlobal(0, 0)
                         let barGlobal = root.bar.contentItem.mapToGlobal(0, 0)

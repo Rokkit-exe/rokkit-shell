@@ -39,6 +39,7 @@ Item {
         bar: systemCtlWidget.bar
       }
       BluetoothWidget {
+        bar: systemCtlWidget.bar
       }
       NetworkWidget {
       }

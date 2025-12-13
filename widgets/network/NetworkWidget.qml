@@ -86,7 +86,7 @@ Item {
             }
             return Theme.icons.wifiOff
         }
-        font.pixelSize: Theme.fonts.iconSize
+        font.pixelSize: Theme.fonts.size.medium
         color: root.connectionStatus === "disconnected" ? Theme.colors.foregroundDark : Theme.colors.blue
         anchors.centerIn: parent
     }

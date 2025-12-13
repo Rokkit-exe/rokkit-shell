@@ -39,7 +39,7 @@ Item {
           text: isActive ? Theme.icons.square : index + 1
           color: isActive ? Theme.colors.blue : (ws ? Theme.colors.foreground : Theme.colors.foregroundDark)
           font.family: Theme.fonts.family
-          font.pixelSize: Theme.fonts.size
+          font.pixelSize: Theme.fonts.size.small
           font.bold: true
           leftPadding: Theme.spacing.small
           rightPadding: Theme.spacing.small

@@ -2,6 +2,7 @@
 import QtQuick
 import Quickshell
 import "../../theme"
+import "../../functions"
 import "../../components" as Components
 
 Item {
@@ -16,22 +17,13 @@ Item {
     bar: clockItem.bar
   }
 
-  MouseArea {
+  Components.MouseArea {
     id: clockArea
-    width: timeText.implicitWidth + Theme.padding.medium * 2
+    width: timeText.implicitWidth + Theme.spacing.medium * 2
     height: Theme.dimensions.itemsHeight
-    cursorShape: Qt.PointingHandCursor
-    hoverEnabled: true
     
-    onClicked: {
-        // Position calendar relative to clock
-        let clockGlobal = clockArea.mapToGlobal(0, 0)
-        let barGlobal = clockItem.bar.contentItem.mapToGlobal(0, 0)
-        let relativeX = clockGlobal.x - barGlobal.x
-        
-        calendarMenu.anchor.rect.x = relativeX - (calendarMenu.width / 2) + (clockArea.width / 2)
-        calendarMenu.visible = !calendarMenu.visible
-    }
+    onLeftClick: () => Functions.toggleMenu(clockItem.bar, calendarMenu, clockArea)
+
     Rectangle {
       anchors.fill: parent
       color: Theme.colors.backgroundLight
@@ -42,7 +34,7 @@ Item {
       Components.Text {
         id: timeText
         text: Time.time
-        padding: Theme.padding.medium
+        padding: Theme.spacing.medium
         anchors.centerIn: parent
       }
     }

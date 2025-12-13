@@ -47,7 +47,7 @@ Item {
           if (volPercent >= 0) return Theme.icons.soundLow
           return Theme.icons.soundMuted
       }
-      font.pixelSize: Theme.fonts.iconSize
+      font.pixelSize: Theme.fonts.size.medium
       color: soundItem.muted ? Theme.colors.foregroundDark : Theme.colors.blue
       anchors.centerIn: parent
     }

@@ -10,20 +10,17 @@ Rectangle {
   property int spacing: 0
 
   width: parent.width - Theme.spacing.medium * 2
-  height: column.implicitHeight + Theme.spacing.small * 2
-  color: Theme.colors.backgroundLight
-  border.color: Theme.colors.backgroundLight
+  height: parent.height - Theme.spacing.medium * 2
+  color: "transparent"
+  border.color: "transparent"
   border.width: Theme.borders.width
   radius: Theme.borders.radius
 
   Column {
     id: column
     width: parent.width
+    height: parent.height
     padding: box.padding
-    leftPadding: box.leftPadding
-    rightPadding: box.rightPadding
-    topPadding: box.topPadding
-    bottomPadding: box.bottomPadding
     spacing: box.spacing
   }
 }

@@ -15,9 +15,8 @@ Row {
   Text {
     text: row.name + ": "
     color: Theme.colors.foregroundDark
-    font.pixelSize: Theme.fonts.size
+    font.pixelSize: Theme.fonts.size.small
     font.family: Theme.fonts.family
-    anchors.verticalCenter: parent.verticalCenter
   }
 
   Text {
@@ -52,9 +51,8 @@ Row {
 
     text: row.value
     color: Theme.colors.foreground
-    font.pixelSize: Theme.fonts.size
+    font.pixelSize: Theme.fonts.size.small
     font.family: Theme.fonts.family
     font.bold: true
-    anchors.verticalCenter: parent.verticalCenter
   }
 }
