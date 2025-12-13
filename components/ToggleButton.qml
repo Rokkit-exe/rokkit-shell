@@ -46,7 +46,7 @@ Item {
       
       Icon {
         text: buttonItem.checked ? buttonItem.textOn : buttonItem.textOff
-        color: buttonItem.checked ? Theme.colors.blue : Theme.colors.foregroundDark
+        color: buttonItem.checked ? buttonItem.colorOn : buttonItem.colorOff
         font.pixelSize: 32
         anchors.centerIn: parent
         anchors.verticalCenter: parent.verticalCenter

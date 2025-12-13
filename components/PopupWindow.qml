@@ -11,7 +11,7 @@ PopupWindow {
   
   anchor.window: bar
   anchor.rect.x: 0
-  anchor.rect.y: bar.height
+  anchor.rect.y: bar ? bar.height + Theme.spacing.small : Theme.dimensions.barHeight + Theme.spacing.small
   color: "transparent"
   visible: false
   

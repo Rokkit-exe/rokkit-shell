@@ -43,7 +43,8 @@ Item {
       }
       NetworkWidget {
       }
-      SoundWidget {
+      AudioWidget {
+        bar: systemCtlWidget.bar
       }
       SettingsWidget {
         settingsWindow: systemCtlWidget.settingsWindow
