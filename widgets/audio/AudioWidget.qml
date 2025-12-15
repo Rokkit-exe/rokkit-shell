@@ -18,8 +18,65 @@ Item {
   property real volume: audioSink?.audio.volume ?? 0
   property bool muted: audioSink?.audio.muted ?? false
 
+  property var audioSinks: [] 
+  property var audioSources: [] 
+  property var audioOutputStreams: [] 
+
+  Component.onCompleted: {
+    updateAudioDevices()
+  }
+
+  function updateAudioDevices() {
+    let sinks = []
+    let sources = []
+    let streams = []
+    
+    for (let i = 0; i < Pipewire.nodes.values.length; i++) {
+      const node = Pipewire.nodes.values[i]
+      if (!node.audio) continue
+      
+      if (node.isStream && node.isSink) {
+        streams.push(node)
+      } else if (node.isSink) {
+        if (node.id === Pipewire.preferredDefaultAudioSink?.id) {
+          sinks.unshift(node)
+
+        } else {
+          sinks.push(node)
+        }
+      } else {
+        if (node.id === Pipewire.preferredDefaultAudioSource?.id) {
+          sources.unshift(node)
+
+        } else {
+          sources.push(node)
+        }
+      }
+    }
+
+    audioSinks = sinks
+    audioSources = sources
+    audioOutputStreams = streams
+  }
+
   PwObjectTracker {
-    objects: [audioWidget.audioSink, audioWidget.audioSource]
+    id: tracker
+    objects: [audioWidget.audioSink, audioWidget.audioSource, ...audioWidget.audioSinks, ...audioWidget.audioSources, ...audioWidget.audioOutputStreams]
+  }
+
+  Connections {
+    target: Pipewire.nodes
+    function onValuesChanged() { audioWidget.updateAudioDevices() }
+  }
+  
+  Connections {
+    target: Pipewire
+    function onReadyChanged() {
+        if (Pipewire.ready) audioWidget.updateAudioDevices()
+    }
+    function onDefaultAudioSinkChanged() {
+        if (Pipewire.defaultAudioSink) audioWidget.audioSink = Pipewire.defaultAudioSink
+    }
   }
 
   AudioMenu {
@@ -27,6 +84,10 @@ Item {
     bar: audioWidget.bar
     audioSink: audioWidget.audioSink
     audioSource: audioWidget.audioSource
+    audioSinks: audioWidget.audioSinks
+    audioSources: audioWidget.audioSources
+    audioOutputStreams: audioWidget.audioOutputStreams
+    updateAudioDevices: audioWidget.updateAudioDevices
   }
   
   Components.MouseArea {
@@ -34,6 +95,7 @@ Item {
     anchors.fill: parent
     
     onLeftClick: () => {
+      audioWidget.updateAudioDevices()
       Functions.toggleMenu(audioWidget.bar, audioMenu, mouseArea)
     }
   }

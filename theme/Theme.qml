@@ -73,6 +73,8 @@ QtObject {
         property string square: "󱓻"
         property string arrowRight: ""
         property string arrowLeft: ""
+        property string arrowUp: ""
+        property string arrowDown: ""
         property string check: ""
         property string cross: ""
         property string on: ""

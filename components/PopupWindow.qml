@@ -8,6 +8,7 @@ PopupWindow {
 
   property var bar: null
   default property alias content: menuContainer.children
+  property alias border: menuContainer.border
   
   anchor.window: bar
   anchor.rect.x: 0

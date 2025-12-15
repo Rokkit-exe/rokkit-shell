@@ -13,8 +13,8 @@ Item {
   
   signal toggled(bool checked)
   
-  width: Theme.dimensions.barHeight + Theme.spacing.small * 2
-  height: Theme.dimensions.barHeight + Theme.spacing.small * 2
+  width: 26 + Theme.spacing.small * 2
+  height: 26 + Theme.spacing.small * 2
   
   MouseArea {
     id: buttonArea
@@ -47,9 +47,8 @@ Item {
       Icon {
         text: buttonItem.checked ? buttonItem.textOn : buttonItem.textOff
         color: buttonItem.checked ? buttonItem.colorOn : buttonItem.colorOff
-        font.pixelSize: 32
+        font.pixelSize: 26
         anchors.centerIn: parent
-        anchors.verticalCenter: parent.verticalCenter
         
         Behavior on color {
           ColorAnimation { duration: 200 }
