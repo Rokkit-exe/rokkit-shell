@@ -7,11 +7,11 @@ QtObject {
   id: functions
 
   function toggleMenu(bar, menu, mouseArea) {
-    let areaGlobal = mouseArea.mapToGlobal(0, 0)
-    let barGlobal = bar.contentItem.mapToGlobal(0, 0)
-    let relativeX = areaGlobal.x - barGlobal.x
-    
-    menu.anchor.rect.x = relativeX - (menu.width / 2) + (mouseArea.width / 2)
+    // let areaGlobal = mouseArea.mapToGlobal(0, 0)
+    // let barGlobal = bar.contentItem.mapToGlobal(0, 0)
+    // let relativeX = areaGlobal.x - barGlobal.x
+    //
+    // menu.anchor.rect.x = relativeX - (menu.width / 2) + (mouseArea.width / 2)
     menu.visible = !menu.visible
   }
 
@@ -48,6 +48,15 @@ QtObject {
     if (value > 0.35) return Theme.colors.blue
     if (value > 0.15) return Theme.colors.yellow
     return Theme.colors.red
+  }
+
+  function getSignalIcon(strength) {
+    // strength is between 0.0 and 1.0
+    if (strength > 0.75) return Theme.icons.wifi4
+    if (strength > 0.5) return Theme.icons.wifi3
+    if (strength > 0.25) return Theme.icons.wifi2
+    if (strength > 0.0) return Theme.icons.wifi1
+    return Theme.icons.wifi0
   }
 }
 

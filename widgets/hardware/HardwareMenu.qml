@@ -8,15 +8,15 @@ import "./MemoryInfo.qml"
 import "./GpuInfo.qml"
 import "./DiskInfo.qml"
 
-PopupWindow {
+Components.PopupWindow {
   id: customMenu
   visible: false
 
   property var bar: null
   
-  anchor.window: bar
-  anchor.rect.x: 0
-  anchor.rect.y: bar.height
+  // anchor.window: bar
+  // anchor.rect.x: 0
+  // anchor.rect.y: bar.height
   color: "transparent"
   
   implicitWidth: menuContainer.width ? menuContainer.width : 100

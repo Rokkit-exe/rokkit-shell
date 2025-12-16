@@ -42,6 +42,7 @@ Item {
         bar: systemCtlWidget.bar
       }
       NetworkWidget {
+        bar: systemCtlWidget.bar
       }
       AudioWidget {
         bar: systemCtlWidget.bar

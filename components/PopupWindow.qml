@@ -1,18 +1,23 @@
 import QtQuick
 import QtQuick.Controls
 import Quickshell
+import Quickshell.Hyprland
 import "../theme"
 
-PopupWindow {
+PanelWindow {
   id: customMenu
 
   property var bar: null
   default property alias content: menuContainer.children
   property alias border: menuContainer.border
-  
-  anchor.window: bar
-  anchor.rect.x: 0
-  anchor.rect.y: bar ? bar.height + Theme.spacing.small : Theme.dimensions.barHeight + Theme.spacing.small
+  property string title: ""
+  property bool focusable: true
+
+  anchors.top: true
+  anchors.right: true
+  margins.right: Theme.spacing.small
+  margins.top: Theme.spacing.small 
+
   color: "transparent"
   visible: false
   

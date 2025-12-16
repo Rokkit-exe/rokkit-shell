@@ -21,7 +21,7 @@ Scope {
       id: bar
       
       required property var modelData
-
+      
       // theme properties
 
       screen: modelData
